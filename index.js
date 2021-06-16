@@ -85,7 +85,7 @@ client.on("messageDelete", (messageDelete) => {
             if (err) {
                 throw err;
             }
-            console.log("Money set");
+            
 
             logInChannel(options.logschannelID, dltmsg1)
         });
@@ -100,7 +100,8 @@ function logInChannel(channelID, messageToLog) {
     let Embed = new Discord.MessageEmbed(  {
         "plainText": "New message logged!",
         "title": "New message deleted!",
-        "description": "New message deleted in **" + messageToLog.serverName+"**",
+        "description": "New message deleted in **" + messageToLog.
+        Name+"**",
         "color": 53380,
         "thumbnail": messageToLog.serverIcon,
         "fields": [
@@ -116,7 +117,7 @@ function logInChannel(channelID, messageToLog) {
             }
         ]
     })
-console.log(messageToLog.serverIcon)
+
 
     client.channels.cache.get(channelID).send(Embed);
 }
