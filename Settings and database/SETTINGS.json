@@ -1,0 +1,17 @@
+{
+    "_comment_": "Please read the GitHub documentation before proceeding",
+    "login": {
+        "token": "TOKEN HERE",
+        "_comment_": "DO NOT GIVE THIS TO ANYBODY"
+    },
+    "options": {
+        "serverWhitelist": [
+            "server id 1",
+            "server id 2",
+            "server id 3"
+        ],
+        "userBlackList": "COMING SOON",
+        "logsChannelID": "channel ID of the log channel",
+        "logJSON": "Coming soon (enabled by default)"
+    }
+}
