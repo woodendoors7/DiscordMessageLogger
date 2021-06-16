@@ -2,7 +2,7 @@ const Discord = require('discord.js-selfbot');
 const client = new Discord.Client();
 const fs = require('fs');
 var dltmsg;
-var thefilenamething = "./database/deletedmsg.json"
+var thefilenamething = "./Settings and database/deletedmsg.json"
 var data;
 var options;
 
