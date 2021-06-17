@@ -9,6 +9,7 @@
 * add trigger words (such as someone saying your name)
 * add edit alerts
 * whitelist with commands
+* add DM logging
 
 ### Other:
 * Write TODO
