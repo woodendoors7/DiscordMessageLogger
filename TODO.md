@@ -6,6 +6,8 @@
 ### Add further features:
 * Update alerts
 * More
+* add trigger words (such as someone saying your name)
+* add edit alerts
 
 ### Other:
 * Write TODO
