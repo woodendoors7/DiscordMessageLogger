@@ -3,9 +3,9 @@
 * Switch between self bot and webhook mode
 * More
 
-###Add further features:
+### Add further features:
 * Update alerts
 * More
 
-###Other:
+### Other:
 * Write TODO
