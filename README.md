@@ -20,6 +20,7 @@ Run the `SETUP.bat` file, or type these commands line by line in Command Prompt 
 ```
 npm install discord.js
 npm install discord.js-self
+npm install xmlhttprequest
 ```
 **Set up:** Open the `Settings and database` folder. Open the file `SETTINGS.json` in a text editor, preferably a text editor designed to edit JSON.
 
