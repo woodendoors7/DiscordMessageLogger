@@ -1,8 +1,8 @@
-# Discord Message Logger Alpha 0.0.1
+# Discord Message Logger Alpha 0.0.3
 
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/woodendoors7/DiscordMessageLogger/graphs/commit-activity)
 [![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
-[![GitHub release](https://img.shields.io/badge/Version-0.0.1-blue)](https://GitHub.com/woodendoors7/DiscordMessageLogger/releases/)
+[![GitHub release](https://img.shields.io/badge/Version-0.0.2-blue)](https://GitHub.com/woodendoors7/DiscordMessageLogger/releases/)
 
 Discord Message Logger is a Discord.JS self bot that logs deleted messages of servers you are in.
 
