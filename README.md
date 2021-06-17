@@ -1,4 +1,4 @@
-# Discord Message Logger Alpha 0.0.3
+# Discord Message Logger Alpha 0.0.4
 
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/woodendoors7/DiscordMessageLogger/graphs/commit-activity)
 [![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
