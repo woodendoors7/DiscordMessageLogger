@@ -32,6 +32,7 @@ cls
 echo Starting install...
 start cmd /c npm install discord.js
 start cmd /c npm install discord.js-selfbot
+start cmd /c npm install xmlhttprequest
 echo.
 echo Continue once both are installed.
 SET /P variable=Continue...
