@@ -35,3 +35,5 @@ npm install discord.js-self
 
 ### License
 [MPL 2.0](https://choosealicense.com/licenses/mpl-2.0/)
+
+30k sus
