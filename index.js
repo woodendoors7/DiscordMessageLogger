@@ -1,4 +1,4 @@
-const Discord = require('discord.js-selfbot');
+const Discord = require('discord.js-self');
 const client = new Discord.Client();
 const fs = require('fs');
 var dltmsg;
