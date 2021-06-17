@@ -11,5 +11,7 @@
 * whitelist with commands
 * add DM logging
 
+
 ### Other:
 * Write TODO
+* make a changelog
