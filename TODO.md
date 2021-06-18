@@ -10,7 +10,7 @@
 * add edit alerts
 * whitelist with commands
 * add DM logging
-* 
+* add attachment support
 
 
 ### Other:
