@@ -5,7 +5,6 @@
 ### Add further features:
 * More
 * add trigger words (such as someone saying your name)
-* add edit alerts
 * whitelist with commands
 * add attachment support
 * add multiple accounts option
@@ -18,6 +17,9 @@
 * Update alerts
 * Write TODO
 * Switch between self bot and webhook mode
+
+### ⌛:
+* add edit alerts
 
 ### ❌:
 * add DM logging 
