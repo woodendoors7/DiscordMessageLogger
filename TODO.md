@@ -6,7 +6,6 @@
 * More
 * add trigger words (such as someone saying your name)
 * whitelist with commands
-* add attachment support
 * add multiple accounts option
 
 
@@ -20,6 +19,7 @@
 
 ### ⌛:
 * add edit alerts
+* add attachment support
 
 ### ❌:
 * add DM logging 
