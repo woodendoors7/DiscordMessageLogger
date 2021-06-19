@@ -8,6 +8,7 @@
 * add edit alerts
 * whitelist with commands
 * add attachment support
+* add multiple accounts option
 
 
 ### Other:
