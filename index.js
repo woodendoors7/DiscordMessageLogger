@@ -251,7 +251,7 @@ function checkVer() {
 		}
 		else {
 			console.log("\x1b[31mNew version found!\x1b[0m")
-			console.log("\x1b[31m\x1b[36mYou are currently running on version \x1b[46m\x1b[30m" + version + "\x1b[0m\x1b[31m\x1b[36mWhile The new version is \x1b[46m\x1b[30m" + newVersion.version + "\x1b[0m")
+			console.log("\x1b[31m\x1b[36mYou are currently running on version \x1b[46m\x1b[30m" + version + "\x1b[0m\x1b[31m\x1b[36m While The new version is \x1b[46m\x1b[30m" + newVersion.version + "\x1b[0m")
 			const readline = require('readline').createInterface({
 				input: process.stdin,
 				output: process.stdout
