@@ -13,5 +13,9 @@
         "userBlackList": "COMING SOON",
         "logsChannelID": "channel ID of the log channel",
         "logJSON": "Coming soon (enabled by default)"
+    },
+    "userSettings": {
+        "webhookOrUser": "user",
+        "webHookUrl": "webhook url here"
     }
 }
