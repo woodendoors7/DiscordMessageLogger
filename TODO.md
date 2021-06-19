@@ -15,11 +15,11 @@
 ### ✔️:
 * Update alerts
 * Write TODO
-* Switch between self bot and webhook mode
 
 ### ⌛:
 * add edit alerts
 * add attachment support
+* Switch between self bot and webhook mode
 
 ### ❌:
 * add DM logging 
