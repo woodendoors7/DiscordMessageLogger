@@ -1,5 +1,5 @@
 {
-   "version": "0.1.0",
-   "manual": "false",
-   "changelog": "👀"
+   "version": "0.1.1",
+   "manual": "true",
+   "changelog": "Changelog: (IMPORTANT) \nFixed a big bug that prevented updates (one of the reasons this update is manual)\nAdded update that allows edited messages and deleted messages to be sent into separate channels/through separate webhooks"
 }
