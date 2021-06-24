@@ -1,21 +1,23 @@
 {
     "_comment_": "Please read the GitHub documentation before proceeding",
     "login": {
-        "token": "TOKEN HERE",
+        "token": "your token here",
         "_comment_": "DO NOT GIVE THIS TO ANYBODY"
     },
     "options": {
         "serverWhitelist": [
-            "server id 1",
-            "server id 2",
-            "server id 3"
+            "server 1",
+            "server 2",
+            "server 3"
         ],
         "userBlackList": "COMING SOON",
-        "logsChannelID": "channel ID of the log channel",
+        "deletedChannelID": "where to log deleted messages",
+        "editedChannelID": "where to log edited messages",
         "logJSON": "Coming soon (enabled by default)"
     },
     "userSettings": {
-        "webhookOrUser": "user",
-        "webHookUrl": "webhook url here"
+        "webhookOrUser": "webhook",
+        "deletedChannelWebhook": "webhook link for deleted messages",
+        "editedChannelWebhook": "webhook link for edited messages"
     }
 }
