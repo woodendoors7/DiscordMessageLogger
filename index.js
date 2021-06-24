@@ -3,7 +3,7 @@ const client = new Discord.Client();
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 const fs = require('fs');
 var dltmsg;
-var version = "0.1.2";
+var version = "0.1.1";
 var thefilenamething = "./Settings and database/deletedmsg.json"
 var data;
 var options;
