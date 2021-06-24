@@ -1,5 +1,6 @@
 {
    "version": "0.1.1",
    "manual": "true",
-   "changelog": "Changelog: \x1b[41m(IMPORTANT)\x1b[41m \nFixed a big bug that prevented updates (one of the reasons this update is manual)\nMade edited and deleted messages to be sent in separate channels."
+   "changelog": "(IMPORTANT) \nFixed a big bug that prevented updates (one of the reasons this update is manual)\nMade edited and deleted messages to be sent in separate channels."
 }
+ 
