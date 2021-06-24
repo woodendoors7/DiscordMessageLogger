@@ -3,7 +3,7 @@ const client = new Discord.Client();
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 const fs = require('fs');
 var dltmsg;
-var version = "0.1.1";
+var version = "0.1.2";
 var thefilenamething = "./Settings and database/deletedmsg.json"
 var data;
 var options;
@@ -245,7 +245,7 @@ function checkVer() {
 		}
 		else {
 			console.log("\x1b[31mNew version found!\x1b[0m")
-			console.log("Changelog: \n"+newVersion.changelog)
+			console.log("Changelog: \x1b[32m\n\n"+newVersion.changelog+"\n")
 
 			console.log("\x1b[31m\x1b[36mYou are currently running on version \x1b[46m\x1b[30m" + version + "\x1b[0m\x1b[31m\x1b[36m, while The new version is \x1b[46m\x1b[30m" + newVersion.version + "\x1b[0m")
 			const readline = require('readline').createInterface({
@@ -297,6 +297,6 @@ function checkVer() {
 	}
 	var oReq = new XMLHttpRequest();
 	oReq.addEventListener("load", reqListener);
-	oReq.open("GET", "https://raw.githubusercontent.com/woodendoors7/DiscordMessageLogger/main/version.json");
+	oReq.open("GET", "https://raw.githubusercontent.com/woodendoors7/DiscordMessageLogger/main/version.json?test");
 	oReq.send();
 }
