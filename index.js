@@ -3,7 +3,7 @@ const client = new Discord.Client();
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 const fs = require('fs');
 var dltmsg;
-var version = "0.1.0";
+var version = "0.1.1";
 var thefilenamething = "./Settings and database/deletedmsg.json"
 var data;
 var options;
@@ -11,16 +11,12 @@ let Embed;
 const sleep = (milliseconds) => {
 	return new Promise(resolve => setTimeout(resolve, milliseconds))
 }
-
 client.on('ready', () => {
 	console.clear()
 	console.log("\n\n\n\n")
 	console.log(`     ╔══════════\n     ║\x1b[32mSUCCESS!\x1b[0m\n     ║Logged in as \x1b[31m${client.user.tag}\x1b[0m!\n     ╚══════════`);
-
 });
-
 beginFunc();
-
 function beginFunc() {
 	console.clear();
 	console.log(`%c \x1b[31m\n
@@ -45,15 +41,16 @@ function beginFunc() {
 	console.log("\x1b[1m\x1b[35mDiscord Message Logger \x1b[0m\x1b[36mVersion " + version)
 	console.log("\x1b[33mby woodendoors7")
 	console.log('\x1b[0m\x1b[32m\n    Press any key to load your settings');
-
-		process.stdin.setRawMode(true);
-		process.stdin.resume();
-		process.stdin.on('data', function () {
-			process.stdin.pause();
-			startFunc()
-		}); 
+	process.stdin.setRawMode(true);
+	process.stdin.resume();
+	process.stdin.on('data', function () {
+		process.stdin.setRawMode(false);
+		process.stdin.end()
+		process.stdin.removeAllListeners()
+		sleep(100)
+		startFunc()
+	});
 }
-
 function startFunc() {
 	console.clear()
 	console.log("\x1b[1mLoading settings . . .\n")
@@ -62,11 +59,12 @@ function startFunc() {
 		checkVer();
 	});
 }
-
 async function loadSettings() {
+	console.clear()
 	console.log("\x1b[1mApplying settings . . .\n")
 	console.log("\x1b[41m(make sure you have edited SETTINGS.json properly, otherwise this will fail)\x1b[0m\n")
-	options = { token: data["login"].token, serverWhitelist: data["options"].serverWhitelist, logschannelID: data["options"].logsChannelID, webhookSetting: data["userSettings"].webhookOrUser, webhookURL: data["userSettings"].webHookUrl }
+	options = { token: data["login"].token, serverWhitelist: data["options"].serverWhitelist, deletedChannelID: data["options"].deletedChannelID, editedChannelID: data["options"].editedChannelID, editedChannelWebhook: data["userSettings"].editedChannelWebhook, deletedChannelWebhook: data["userSettings"].deletedChannelWebhook, logschannelID: data["options"].logsChannelID, webhookSetting: data["userSettings"].webhookOrUser, webhookURL: data["userSettings"].webHookUrl }
+
 	await sleep(1000)
 	var people = [["TOKEN:", "********"], ["Whitelist IDs:", options.serverWhitelist.length + " servers chosen"], ["Logs channel ID:", options.logschannelID], ["Logs to JSON:", "Enabled"]]
 	console.table(people)
@@ -74,7 +72,7 @@ async function loadSettings() {
 }
 
 client.on('message', message => {
-	if (message.guild == null) console.log("Howw")
+
 });
 
 client.on('messageUpdate', (oldMessage, newMessage) => {
@@ -102,7 +100,6 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
 		}
 	}
 })
-
 client.on("messageDelete", (messageDelete) => {
 	if (options.serverWhitelist.includes(messageDelete.guild.id)) {
 		let dltmsg = require(thefilenamething)
@@ -119,21 +116,14 @@ client.on("messageDelete", (messageDelete) => {
 			serverId: `${messageDelete.guild.id}`,
 			serverIcon: `${messageDelete.guild.iconURL()}`,
 			channelName: `${messageDelete.channel.name}`,
-
 		}
-
 		if (messageDelete.attachments.size > 0) {
 			dltmsg1["attachmentImage"] = `${messageDelete.attachments.array()[0].url}`
 		}
-
-
-
-
 		const stringified = JSON.stringify(dltmsg, null, 4, '\t\n');
 		createEmbed(dltmsg1, 'delete')
 	}
 });
-
 async function createEmbed(messageToLog, editOrDelete) {
 	if (editOrDelete == "delete") {
 		Embed = new Discord.MessageEmbed({
@@ -155,20 +145,14 @@ async function createEmbed(messageToLog, editOrDelete) {
 					"inline": false
 				}
 			]
-
 		})
 		Embed.setImage(messageToLog.attachmentImage)
-
 		await sleep(100)
-
-
-
 		if (options.webhookSetting == "webhook") {
-			logWithWebhook(options.logschannelID, Embed)
-
+			logWithWebhook(options.logschannelID, Embed, "deleted")
 		}
 		if (options.webhookSetting == "user") {
-			logInChannel(options.logschannelID, Embed)
+			logInChannel(options.logschannelID, Embed, "deleted")
 		}
 		console.clear();
 		console.log("\n\n\n\n")
@@ -178,11 +162,9 @@ async function createEmbed(messageToLog, editOrDelete) {
 			console.log("\x1b[35m             ╔═════════════════════════════╗\n\x1b[35m             ║\x1b[0m\x1b[36mServer name:\x1b[31m " + messageToLog.serverName + "\n\x1b[35m             ║\x1b[0m\x1b[36mAuthor:\x1b[31m " + messageToLog.messageAuthor + "\n\x1b[35m             ║\x1b[0m\x1b[36mLogged message:\x1b[31m " + messageToLog.messageContent + "\x1b[35m\n             ╚═════════════════════════════╝\x1b[0m")
 		} else {
 			console.log("\x1b[32m\n\n\n              Last removed message: ")
-
 			console.log("\x1b[35m             ╔═════════════════════════════╗\n\x1b[35m             ║\x1b[0m\x1b[36mServer name:\x1b[31m " + messageToLog.serverName + "\n\x1b[35m             ║\x1b[0m\x1b[36mAuthor:\x1b[31m " + messageToLog.messageAuthor + "\n\x1b[35m             ║\x1b[0m\x1b[31mMessage was too long\x1b[35m\n             ╚═════════════════════════════╝\x1b[0m")
 		}
 	} else {
-
 		Embed = new Discord.MessageEmbed({
 			"plainText": "New message logged!",
 			"title": "New message edited!",
@@ -207,32 +189,45 @@ async function createEmbed(messageToLog, editOrDelete) {
 				}
 			]
 		})
-
+		await sleep(200)
 		if (options.webhookSetting == "webhook") {
-			logWithWebhook(options.logschannelID, Embed)
-			console.log(options.logschannelID)
+			logWithWebhook(options.logschannelID, Embed, "edited")
 		} else if (options.webhookSetting == "user") {
-			logInChannel(options.logschannelID, Embed)
+			logInChannel(options.logschannelID, Embed, "edited")
 		}
 	}
 }
+function logWithWebhook(channelID, Embed, deletedOrNot) {
+	if (deletedOrNot == "deleted") {
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", options.deletedChannelWebhook, true);
+		xhr.setRequestHeader('Content-Type', 'application/json');
+		xhr.send(JSON.stringify({
+			content: "New message logged!",
+			embeds: [Embed]
+		}));
+	} else {
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", options.editedChannelWebhook, true);
+		xhr.setRequestHeader('Content-Type', 'application/json');
+		xhr.send(JSON.stringify({
+			content: "New message logged!",
+			embeds: [Embed]
+		}));
+	}
 
-function logWithWebhook(channelID, Embed) {
-	var xhr = new XMLHttpRequest();
-	xhr.open("POST", options.webhookURL, true);
-	xhr.setRequestHeader('Content-Type', 'application/json');
-	xhr.send(JSON.stringify({
-		content: "New message logged!",
-		embeds: [Embed]
-	}));
 }
-
-function logInChannel(channelID, Embed) {
-	client.channels.cache.get(options.logschannelID).send(Embed).catch((error) => {
-		console.error(error);
-	});
+function logInChannel(channelID, Embed, deletedOrNot) {
+	if (deletedOrNot == "deleted") {
+		client.channels.cache.get(options.deletedChannelID).send(Embed).catch((error) => {
+			console.error(error);
+		});
+	} else {
+		client.channels.cache.get(options.editedChannelID).send(Embed).catch((error) => {
+			console.error(error);
+		});
+	}
 }
-
 function loginAccount(tokenToLogin, test) {
 	console.log("\n\x1b[43m\x1b[30mUnloading tokens from memory. . .\x1b[0m\n")
 	console.log("\x1b[36mLogging in into your account. . .\x1b[0m\n\x1b[2m   (this might take a minute)\x1b[0m\n")
@@ -240,7 +235,6 @@ function loginAccount(tokenToLogin, test) {
 	options["token"] = "";
 	tokenToLogin = "";
 }
-
 function checkVer() {
 	function reqListener() {
 		var newVersion = this.responseText;
@@ -251,7 +245,11 @@ function checkVer() {
 		}
 		else {
 			console.log("\x1b[31mNew version found!\x1b[0m")
-			console.log("\x1b[31m\x1b[36mYou are currently running on version \x1b[46m\x1b[30m" + version + "\x1b[0m\x1b[31m\x1b[36m While The new version is \x1b[46m\x1b[30m" + newVersion.version + "\x1b[0m")
+			const array = [{ myId: "Changelog", Changelog: newVersion.changelog }]
+			const transformed = array.reduce((acc, { myId, ...x }) => { acc[myId] = x; return acc }, {})
+			console.table(transformed)
+
+			console.log("\x1b[31m\x1b[36mYou are currently running on version \x1b[46m\x1b[30m" + version + "\x1b[0m\x1b[31m\x1b[36m, while The new version is \x1b[46m\x1b[30m" + newVersion.version + "\x1b[0m")
 			const readline = require('readline').createInterface({
 				input: process.stdin,
 				output: process.stdout
@@ -266,8 +264,9 @@ function checkVer() {
 						if (newVersion.manual == "true") {
 							console.clear();
 							console.log("\n\n\x1b[31mUh, Oh!\x1b[0m\nThis update probably includes multiple files being changed.\n\x1b[1mPlease download it manually.")
-							await sleep(4000)
-							var url = 'https://github.com/woodendoors7/DiscordMessageLogger';
+							console.log("\x1b[1m\x1b[31mCHANGELOG: \n\x1b[0m" + newVersion.changelog)
+							await sleep(3000)
+							var url = 'https://codeload.github.com/woodendoors7/DiscordMessageLogger/zip/refs/heads/main';
 							var start = (process.platform == 'darwin' ? 'open' : process.platform == 'win32' ? 'start' : 'xdg-open');
 							require('child_process').exec(start + ' ' + url);
 						}
