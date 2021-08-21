@@ -5,18 +5,17 @@
 * Write TODO
 
 ### ⌛ Working on:
-* add edit alerts
-* add attachment support
-* Switch between self bot and webhook mode
+* Add UI using Electron or NW.js
+* Switch from Discord.JS to using web sockets
 
 ### 💬 Will do later:
 * add trigger words (such as someone saying your name)
 * whitelist with commands
 * add multiple accounts option
 * Switch between Blacklist/Whitelist mode
-* Add UI using Electron or NW.js
-* Switch from Discord.JS to using web sockets
-
+* add edit alerts
+* add attachment support
+* Switch between self bot and webhook mode
 
 ### ❌ Impossible/cancelled:
 * ~~add DM logging~~
