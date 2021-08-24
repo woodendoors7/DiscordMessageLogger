@@ -10,11 +10,12 @@ Discord Message Logger is a Discord.JS self bot that logs deleted messages of se
 
 We are currently working on giving the app an UI and trying to switch from Discord.js to coding a web socket connection ourselves.
 
-**Warning:** I am not responsible for any account suspension caused by self-botting.
-You are using this script with your own responsibility
 
 
 ## How to use
+
+**Warning:** I am not responsible for any account suspension caused by self-botting.
+You are using this script with your own responsibility
 
 **Installation:**
 Make sure that you have [NODE.js](https://nodejs.org) and [Node Package Manager (npm)](https://nodejs.org) installed on your computer.
