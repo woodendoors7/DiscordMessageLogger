@@ -6,7 +6,7 @@
 
 Discord Message Logger is a Discord.JS self bot that logs deleted messages of servers you are in.
 
-## BIG PLANS!
+# BIG PLANS!
 
 We are currently working on giving the app an UI and trying to switch from Discord.js to coding a web socket connection ourselves.
 
